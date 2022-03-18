@@ -15,7 +15,7 @@ COPY . ./
 RUN CGO_ENABLED=0 GOOS=linux go build -installsuffix cgo -o /go/app github.com/requilence/integram/cmd/multi-process-mode
 
 # move the builded binary into the tiny alpine linux image
-FROM alpine:latest
+FROM alpine:3.15
 RUN apk --no-cache add ca-certificates && rm -rf /var/cache/apk/*
 WORKDIR /app
 
